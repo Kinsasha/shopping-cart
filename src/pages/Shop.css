@@ -1,0 +1,115 @@
+.shopSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 10vh;
+}
+.cartHeroSection {
+  h2 {
+    color: var(--text-h);
+    font-size: clamp(2rem, 2.5vw, 4rem);
+    line-height: 1;
+  }
+  h3 {
+    font-size: clamp(1.5rem, 2vw, 3rem);
+  }
+}
+.cartContainer {
+  width: 80vw;
+  display: grid;
+  justify-items: center;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+
+.card {
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    width: 80%;
+    color: var(--text-h);
+    height: 3rem;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    padding: 1rem;
+  }
+
+  p {
+    padding: 1rem;
+    height: 5rem;
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+    margin-top: 0;
+  }
+
+  h4 {
+    color: var(--text-h);
+    font-size: clamp(1rem, 1.5vw, 3rem);
+
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+}
+.productImg {
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  img {
+    width: 15rem;
+    height: 15rem;
+  }
+}
+
+.inputField {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  gap: 0.5rem;
+  /* border: 1px solid black; */
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    flex: 1;
+    font-size: clamp(1rem, 1vw, 3rem);
+
+    background-color: transparent;
+    color: var(--text-h);
+    border: 1px solid rgb(0, 0, 0, 0.5);
+    border-radius: 50%;
+  }
+  input {
+    width: 50%;
+    background-color: transparent;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(0, 0, 0, 0.5);
+    color: black;
+
+    text-align: center;
+    font-size: clamp(1rem, 1.2vw, 3rem);
+  }
+}
+
+.cartBtn {
+  padding: 1rem 2rem;
+  width: 90%;
+
+  background-color: var(--text-h);
+  border-radius: 0.5rem;
+
+  margin-top: 1rem;
+}

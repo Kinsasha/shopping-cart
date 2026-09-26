@@ -1,11 +1,30 @@
+@keyframes slideUp {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .shopSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  margin-top: 10vh;
+
+  min-height: 70vh;
 }
 .cartHeroSection {
+  position: relative;
+
   h2 {
     color: var(--text-h);
     font-size: clamp(2rem, 2.5vw, 4rem);
@@ -21,6 +40,8 @@
   justify-items: center;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+
+  /* position: relative; */
 }
 
 .card {
@@ -35,15 +56,15 @@
   h3 {
     width: 80%;
     color: var(--text-h);
-    height: 3rem;
+    height: 2rem;
     overflow-y: scroll;
     scrollbar-width: none;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
   }
 
   p {
     padding: 1rem;
-    height: 5rem;
+    height: 2rem;
     overflow-y: scroll;
     scrollbar-width: none;
 
@@ -64,8 +85,8 @@
   border-radius: 0.5rem;
 
   img {
-    width: 15rem;
-    height: 15rem;
+    width: 10rem;
+    height: 10rem;
   }
 }
 
@@ -74,7 +95,6 @@
   justify-content: center;
   width: 50%;
   gap: 0.5rem;
-  /* border: 1px solid black; */
 
   button {
     display: flex;
@@ -93,7 +113,7 @@
     border-radius: 50%;
   }
   input {
-    width: 50%;
+    width: clamp(2rem, 50%, 100rem);
     background-color: transparent;
     border-radius: 0.5rem;
     border: 1px solid rgb(0, 0, 0, 0.5);
@@ -107,9 +127,79 @@
 .cartBtn {
   padding: 1rem 2rem;
   width: 90%;
+  margin-top: 1rem;
+  font-size: clamp(1rem, 1vw, 3rem);
 
   background-color: var(--text-h);
   border-radius: 0.5rem;
+}
 
-  margin-top: 1rem;
+.cartBubble {
+  position: fixed;
+  right: 2.5rem;
+  bottom: 2.5rem;
+
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--text-h);
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: slideUp 0.25s ease-out;
+  svg {
+    height: 3.5rem;
+    width: 3.5rem;
+
+    color: #fff;
+  }
+}
+
+.loaderSection {
+  position: fixed;
+  inset: 0;
+
+  .loaderContainer {
+    color: black;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .loader {
+    border: 0.8rem solid black;
+    border-right-color: transparent;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+  }
+  .loaderText {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .loaderSection {
+    top: 80vw;
+    .loader {
+      border: 0.3rem solid black;
+      border-right-color: transparent;
+      width: 10vw;
+      height: 10vw;
+    }
+    .loaderText {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
 }

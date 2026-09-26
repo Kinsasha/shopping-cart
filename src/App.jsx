@@ -6,6 +6,7 @@ import { Outlet } from "react-router";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   const callClothesData = async () => {
     try {
@@ -28,10 +29,75 @@ function App() {
     callClothesData();
   }, []);
 
+  const handleAddToCart = (id, value) => {
+    const num = Number(value);
+    if (num === 0) {
+      return alert("its zero, nigga!");
+    }
+
+    setCart((prevCart) => {
+      const existing = prevCart.find((item) => item.productID === id);
+
+      if (existing) {
+        return prevCart.map((item) =>
+          item.productID === id
+            ? {
+                ...item,
+                quantity: item.quantity + num,
+              }
+            : item
+        );
+      }
+
+      return [
+        ...prevCart,
+        {
+          productID: id,
+          quantity: num,
+        },
+      ];
+    });
+  };
+
+  const handleAddQuantity = (id) => {
+    setCart((prev) =>
+      prev.map((item) =>
+        item.productID === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+  const handleSubtractQuantity = (id) => {
+    setCart((prev) =>
+      prev.map((item) =>
+        item.productID === id
+          ? { ...item, quantity: Math.max(1, item.quantity - 1) }
+          : item
+      )
+    );
+  };
+  const getCartInput = (id) => {
+    const num = Number(cart.find((item) => item.productID === id)?.quantity);
+
+    return num;
+  };
+
+  const totalItem = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <section>
-      <Header />
-      <Outlet context={{ products }} />
+      <Header totalItem={totalItem} />
+      <Outlet
+        context={{
+          products,
+          handleAddToCart,
+          cart,
+          setCart,
+          handleAddQuantity,
+          handleSubtractQuantity,
+          getCartInput,
+          totalItem,
+        }}
+      />
       <Footer />
     </section>
   );

@@ -1,6 +1,15 @@
+import { useOutletContext } from "react-router";
 import "./../pages/Shop.css";
 
-export default function ProductCards({ product, value }) {
+export default function ProductCards({
+  product,
+  getQuantity,
+  handleChange,
+  handleSubtract,
+  handleAdd,
+}) {
+  const { handleAddToCart } = useOutletContext();
+
   return (
     <div className="card">
       <div className="productImg">
@@ -10,11 +19,38 @@ export default function ProductCards({ product, value }) {
       <p>{product.description}</p>
       <h4>${product.price}</h4>
       <div className="inputField">
-        <button type="button">-</button>
-        <input type="number" value={value} />
-        <button type="button">+</button>
+        <button
+          type="button"
+          onClick={() => {
+            handleSubtract(product.id);
+          }}
+        >
+          -
+        </button>
+        <input
+          name="quantity"
+          type="number"
+          value={getQuantity(product.id)}
+          onChange={(e) => {
+            handleChange(product.id, e.target.value);
+          }}
+        />
+        <button
+          type="button"
+          onClick={() => {
+            handleAdd(product.id);
+          }}
+        >
+          +
+        </button>
       </div>
-      <button className="cartBtn" type="button">
+      <button
+        className="cartBtn"
+        type="button"
+        onClick={() => {
+          handleAddToCart(product.id, getQuantity(product.id));
+        }}
+      >
         Add to Cart
       </button>
     </div>

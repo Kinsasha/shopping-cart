@@ -1,9 +1,6 @@
 import { Link } from "react-router";
 
-function Header() {
-  const handleShopClick = () => {
-    // link
-  };
+function Header({ totalItem }) {
   return (
     <header>
       <h1>FakeStore.stfu</h1>
@@ -14,10 +11,16 @@ function Header() {
         <Link to={"/shop"} className="navBtn">
           Shop
         </Link>
-        <Link to={"/cart"} className="navBtn">
-          Cart
-          <div className="cartCounter"></div>
-        </Link>
+        <div className="cartBtnContainer">
+          <Link to={"/cart"} className="navBtn cartAnchor">
+            Cart
+            {totalItem > 0 ? (
+              <span className="cartCounter">{totalItem}</span>
+            ) : (
+              ""
+            )}
+          </Link>
+        </div>
       </div>
     </header>
   );

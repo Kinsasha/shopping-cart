@@ -29,9 +29,7 @@ export default function Main() {
         </div>
         <div className="featuresCard">
           <h3>Return Anytime</h3>
-          <p>
-            Not saatisfied with our products? Return anytime with no problem
-          </p>
+          <p>Not satisfied with our products? Return anytime with no problem</p>
         </div>
       </div>
     </main>

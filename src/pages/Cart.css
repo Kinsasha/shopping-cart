@@ -22,12 +22,31 @@
     rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   border-radius: 0.5rem;
   border: 1px solid rgb(0, 0, 0, 0.2);
+  position: relative;
 
   h4 {
     font-size: clamp(1rem, 1.5vw, 3rem);
     padding: 0 0.5rem;
     color: rgb(0, 107, 61);
     line-height: 1.2;
+  }
+
+  span {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+
+    button {
+      background-color: transparent;
+      padding: 0.5rem;
+      border: none;
+
+      svg {
+        color: red;
+        width: 2rem;
+        height: 2rem;
+      }
+    }
   }
 }
 
@@ -62,4 +81,88 @@
     rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   border-radius: 0.5rem;
   border: 1px solid rgb(0, 0, 0, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+
+  h2 {
+    font-size: clamp(2rem, 2vw + 1rem, 4rem);
+    color: var(--text-h);
+  }
+  h3 {
+    font-size: clamp(2rem, 2vw + 1rem, 4rem);
+    color: var(--text-h);
+    color: rgb(0, 107, 61);
+  }
+  button {
+    color: var(--btn-color);
+    font-size: clamp(1rem, 2vw, 3rem);
+    padding: clamp(0.5rem, 1vw + 0.5rem, 3rem) clamp(1rem, 2vw + 0.5rem, 3rem);
+    background-color: rgb(0, 107, 61);
+    border-radius: 0.5rem;
+    border: 2px solid white;
+    transition: all 0.5s ease-in;
+
+    max-width: 80%;
+  }
+
+  button:hover {
+    border-color: black;
+    transform: scale(1.05);
+  }
+}
+
+.emptyContainer {
+  box-shadow: var(--shadow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  p {
+    color: var(--text-h);
+    font-size: clamp(1rem, 1.5vw, 3rem);
+    font-weight: 700;
+    margin: 01rem;
+  }
+}
+.imgContainer {
+  height: 60%;
+  img {
+    height: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .cartSection {
+    display: flex;
+    flex-direction: column;
+  }
+  .imgContainer {
+    height: 15rem;
+  }
+
+  .cartCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cartNameContainer {
+    align-items: center;
+    padding: 0.5rem;
+
+    h3 {
+      font-size: clamp(1rem, 1.5vw, 3rem);
+      color: var(--text-h);
+      text-align: center;
+      width: 100%;
+    }
+  }
+  .cartInputField {
+    width: 100%;
+  }
 }

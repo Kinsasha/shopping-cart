@@ -1,25 +1,36 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 
 function Header({ totalItem }) {
   return (
     <header>
       <h1>FakeStore.stfu</h1>
       <div className="headerBtnContainer">
-        <Link to={"/"} className="navBtn">
+        <NavLink
+          to={"/"}
+          className={({ isActive }) => (isActive ? "navBtn active" : "navBtn")}
+        >
           Home
-        </Link>
-        <Link to={"/shop"} className="navBtn">
+        </NavLink>
+        <NavLink
+          to={"/shop"}
+          className={({ isActive }) => (isActive ? "navBtn active" : "navBtn")}
+        >
           Shop
-        </Link>
+        </NavLink>
         <div className="cartBtnContainer">
-          <Link to={"/cart"} className="navBtn cartAnchor">
+          <NavLink
+            to={"/cart"}
+            className={({ isActive }) =>
+              isActive ? "navBtn cartAnchor active" : "navBtn cartAnchor"
+            }
+          >
             Cart
             {totalItem > 0 ? (
               <span className="cartCounter">{totalItem}</span>
             ) : (
               ""
             )}
-          </Link>
+          </NavLink>
         </div>
       </div>
     </header>

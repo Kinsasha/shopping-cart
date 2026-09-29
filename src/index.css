@@ -57,6 +57,10 @@ a {
 }
 button {
   cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+button:active {
+  transform: translateY(5px);
 }
 
 header {
@@ -81,16 +85,29 @@ header {
   h1 {
     font-size: clamp(1.5rem, 2vw + 1.5rem, 6rem);
   }
-  .navBtn {
-    color: var(--btn-color);
-    font-size: clamp(1rem, 1vw, 3rem);
-    padding: clamp(0.5rem, 1vw + 0.5rem, 1rem) clamp(1rem, 2vw + 0.5rem, 3rem);
-    background-color: var(--text-h);
-    border-radius: 0.5rem;
-    font-weight: 700;
-  }
 }
+.navBtn {
+  color: var(--btn-color);
+  font-size: clamp(1rem, 1vw, 3rem);
+  padding: clamp(0.5rem, 1vw + 0.5rem, 1rem) clamp(1rem, 2vw + 0.5rem, 3rem);
+  background-color: var(--text-h);
+  border-radius: 0.5rem;
+  font-weight: 700;
 
+  border: 2px solid #fff;
+  transition: all 0.5s ease-in;
+}
+.navBtn:hover {
+  color: #000;
+  background-color: var(--bg);
+  border-color: #000;
+  transform: scale(1.05);
+}
+.navBtn.active {
+  color: #000;
+  background-color: var(--bg);
+  border-color: #000;
+}
 .cartAnchor {
   position: relative;
   display: inline-flex;
@@ -102,8 +119,8 @@ header {
   top: -8px;
   right: -8px;
 
-  width: 2rem;
-  height: 2rem;
+  min-width: 2rem;
+  min-height: 2rem;
 
   display: flex;
   align-items: center;

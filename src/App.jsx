@@ -7,12 +7,18 @@ import { Outlet } from "react-router";
 function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const callClothesData = async () => {
+    setError(null);
+    setLoading(true);
     try {
       const response = await fetch("https://fakestoreapi.com/products");
 
       if (!response.ok) {
+        setLoading(false);
+        setError("error");
         console.error(response.status);
         return;
       }
@@ -20,8 +26,12 @@ function App() {
       const data = await response.json();
       setProducts(data);
     } catch (error) {
+      setLoading(false);
+      setError("error");
       console.error(error);
       return;
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -83,6 +93,10 @@ function App() {
 
   const totalItem = cart.reduce((total, item) => total + item.quantity, 0);
 
+  const handleRemoveFromCart = (id) => {
+    setCart((prevCart) => prevCart.filter((item) => item.productID !== id));
+  };
+
   return (
     <section>
       <Header totalItem={totalItem} />
@@ -96,6 +110,10 @@ function App() {
           handleSubtractQuantity,
           getCartInput,
           totalItem,
+          loading,
+          error,
+          callClothesData,
+          handleRemoveFromCart,
         }}
       />
       <Footer />

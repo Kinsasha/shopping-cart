@@ -67,7 +67,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: clamp(0.5rem, 1rem + 1vw, 3rem);
+  padding: clamp(0.5rem, 1.5rem + 0.5vw, 3rem);
   border-bottom: 1px solid rgb(0, 0, 0, 0.25);
   color: var(--text-h);
   background-color: rgb(227, 226, 226, 0.8);
@@ -89,7 +89,7 @@ header {
 .navBtn {
   color: var(--btn-color);
   font-size: clamp(1rem, 1vw, 3rem);
-  padding: clamp(0.5rem, 1vw + 0.5rem, 1rem) clamp(1rem, 2vw + 0.5rem, 3rem);
+  padding: clamp(0.5rem, 0.5vw + 1rem, 1rem) clamp(1rem, 0.5vw + 2rem, 3rem);
   background-color: var(--text-h);
   border-radius: 0.5rem;
   font-weight: 700;

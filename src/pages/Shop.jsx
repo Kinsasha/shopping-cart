@@ -4,9 +4,12 @@ import ErrorCard from "../components/ErrorCard";
 import { useEffect, useState } from "react";
 import { useOutletContext, NavLink } from "react-router";
 import "./Shop.css";
+import FleetingError from "../components/FleetingError";
 
 export default function Shop() {
-  const { products, totalItem, error, loading } = useOutletContext();
+  const { products, totalItem, error, loading, fleetingCard } =
+    useOutletContext();
+
   const [quantities, setQuantities] = useState([]);
   const [showCart, setShowCart] = useState(false);
 
@@ -75,6 +78,11 @@ export default function Shop() {
 
   return (
     <section className="shopSection">
+      <FleetingError
+        style={{
+          display: `${fleetingCard ? "flex" : "none"}`,
+        }}
+      />
       <div className="cartHeroSection">
         <h2>Choose your picks from our enormous collection</h2>
         <h3>Shop Now</h3>

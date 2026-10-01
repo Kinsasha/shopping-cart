@@ -9,6 +9,7 @@ function App() {
   const [cart, setCart] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [fleetingCard, setFleetingCard] = useState(false);
 
   const callClothesData = async () => {
     setError(null);
@@ -39,10 +40,19 @@ function App() {
     callClothesData();
   }, []);
 
+  const showFleeting = () => {
+    setFleetingCard(true);
+
+    setTimeout(() => {
+      setFleetingCard(false);
+    }, 3000);
+  };
+
   const handleAddToCart = (id, value) => {
     const num = Number(value);
     if (num === 0) {
-      return alert("its zero, nigga!");
+      showFleeting();
+      return;
     }
 
     setCart((prevCart) => {
@@ -114,6 +124,8 @@ function App() {
           error,
           callClothesData,
           handleRemoveFromCart,
+          setFleetingCard,
+          fleetingCard,
         }}
       />
       <Footer />

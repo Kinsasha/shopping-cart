@@ -8,6 +8,14 @@
     opacity: 1;
   }
 }
+@keyframes slideDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 @keyframes spin {
   100% {
     transform: rotate(360deg);
@@ -222,6 +230,35 @@
 
     background-color: var(--text-h);
     border-radius: 0.5rem;
+  }
+}
+.fleetingContainer {
+  position: fixed;
+  right: 8px;
+  top: 1rem;
+  z-index: 999;
+  padding: 1rem;
+  background-color: var(--bg);
+  border-radius: 0.5rem;
+
+  box-shadow: var(--shadow);
+
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+
+  animation: slideDown 0.25s ease;
+
+  .fleetingCard {
+    font-size: clamp(1rem, 0.5vw 0.5rem, 2rem);
+    font-weight: 700;
+    color: var(--text-h);
+  }
+  svg {
+    color: red;
+    height: 2rem;
+    width: 2rem;
   }
 }
 

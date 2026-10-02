@@ -38,7 +38,7 @@ main {
 
     color: var(--btn-color);
     font-size: clamp(1rem, 1.5vw, 3rem);
-    padding: clamp(0.5rem, 1vw + 0.5rem, 3rem) clamp(1rem, 2vw + 0.5rem, 3rem);
+    padding: 1.5rem 2rem;
     background-color: var(--text-h);
     border-radius: 0.5rem;
     border: 2px solid white;
@@ -64,7 +64,7 @@ main {
     width: 80%;
     border: 1px solid rgb(0, 0, 0, 0.1);
     border-radius: 0.5rem;
-    padding: 0 1rem 1rem;
+    padding: 1rem;
 
     display: flex;
     flex-direction: column;

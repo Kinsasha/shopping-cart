@@ -100,7 +100,7 @@
   button {
     color: var(--btn-color);
     font-size: clamp(1rem, 2vw, 3rem);
-    padding: clamp(0.5rem, 0.5vw + 1rem, 3rem) clamp(1rem, 0.5vw + 2rem, 3rem);
+    padding: 1.5rem 2rem;
     background-color: rgb(0, 107, 61);
     border-radius: 0.5rem;
     border: 2px solid white;

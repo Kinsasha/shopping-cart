@@ -282,6 +282,11 @@
       transition: all 0.5s ease-in;
       line-height: 1.5;
 
+      h3 {
+        margin-bottom: 0;
+        padding-bottom: 0.2rem;
+      }
+
       p {
         min-height: 1rem;
         color: rgb(0, 0, 0, 0.8);
